@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+	<div class="sign-up">
+	  <div class="cover">
+	    <form method="POST" >
+	    {% csrf_token %}
+	      <a href="#">
+        
+        <h2 class="">Intelli.ai</h2>
+      </a>
+	      <h2>Login to continue</h2>
+      <p>Quickly sign in by using your exiting account.</p>
+	      <input type="email" name="email" id="" value="" placeholder="email address"/>
+	      <input type="password" name="password" id="" value="" placeholder="password.."/>
+	      <input type="submit" name="" id="" value="login" />
+	      <p>Don't have an account? <a href="#">Sign up</a></p>
+	    </form>
+	  </div>
+	</div>
+
+{% endblock content %}

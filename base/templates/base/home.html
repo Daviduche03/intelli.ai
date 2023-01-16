@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title></title>
+     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Select2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+      </head>
+  <body>
+    <header class="flex">
+    <div class="logo">
+      <a href="#">
+        <span class="material-symbols-rounded">
+attractions
+</span>
+        <h2 class="">Intelli.ai</h2>
+      </a>
+    </div>
+    <div class="acc">
+      <p class="material-symbols-rounded" data-effect="st-effect-1" id="menu">menu</p>
+    </div>
+  </header>
+  
+  <div id="grid">
+      <nav class="st-menu st-effect-1" id="menu-1">
+    
+    <ul>
+      
+      <li><a class="icon icon-location" href="#">Templates</a></li>
+      <li><a class="icon icon-location" href="#">Plagiarism checker</a></li>
+      <li><a class="icon icon-location" href="#">Ai content detector</a></li>
+      <li><a class="icon icon-photo" href="#">Image generator</a></li>
+      <li><a class="icon icon-wallet" href="#">Sign up</a></li>
+    </ul>
+  </nav>
+  
+  <div class="box">
+    
+        <form method="POST" id="form">
+       {%csrf_token%}
+        {{form.as_p}}
+        <input type='submit' value='submit' id='btn'/>
+  </form>
+  
+    
+    <div id="div" style='margin: 1rem'>
+  vbbb
+  </div>
+  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    const list_item = []
+  // Get the form submit button
+  const submitButton = document.getElementById("btn");
+
+const select = document.getElementById('id_prompt_style').value
+
+
+submitButton.addEventListener("click", function(event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+
+
+  // Get the form data
+  const formData = new FormData(document.getElementById("form"));
+
+  // Send a POST request to the server
+  fetch('/templates/new/', {
+  method: 'POST',
+  body: formData
+})
+.then(response => response.json())
+.then(data => {
+  // Get a reference to the div element
+  const div = document.getElementById("div");
+  
+  // Set the innerHTML of the div to the response data
+  
+  div.innerHTML = '';
+  data['content'].forEach(item => {
+  
+  const li = document.createElement('li')
+  
+  list_item.push(li)
+  li.innerHTML = item['text'];
+  div.appendChild(li)
+  
+  })
+})
+.catch(error => console.error(error))
+});
+
+
+      $("#id_prompt_style").select2({
+          placeholder: "Select a programming language",
+          allowClear: true
+      });
+  </script>
+ 
+
+  </body>
+</html>

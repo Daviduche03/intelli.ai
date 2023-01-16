@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title></title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Select2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    
+ <style type="text/css" media="">
+ body {
+  background: #e7e7e7;
+  color: #000;
+  display: flex;   
+  justify-content: center;   
+  align-items: center;   
+  flex-direction: column;   
+  height: 100vh
+}
+
+.sign-up{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 2.7rem;
+  margin: 1.3rem;
+  place-items: center;
+}
+
+.cover{
+  background: #fff;
+  padding: 2rem;
+  border-radius: .2rem;
+}
+
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+form h2{
+  margin: 1rem 0 1rem 0;
+}
+
+form p{
+  margin-bottom: 1rem;
+}
+
+form p:last-child{
+  color: grey;
+  width: 20rem;
+  margin-top: 1rem;
+}
+
+form input, textarea, select{
+  width: 100%;
+  padding: .9rem;
+  background: transparent;
+  border: 2px solid #e7e7e7;
+  outline: none;
+  margin: .7rem;
+  border-radius: .3rem;
+  margin-bottom: 1rem;
+}
+
+form input[type='submit']{
+  background: #7138ff;
+  color: #fff;
+}
+
+
+form textarea{
+  height: 20rem;
+  margin-top: 3rem;
+}
+
+#id_topic{
+margin-top: 3rem;
+margin-bottom: 3rem;
+}
+
+li{
+list-style: none;
+background: #fff;
+color: #111;
+padding: 1.5rem;
+border-radius: .3rem;
+margin: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+
+.sign-up{
+    grid-template-columns: repeat(1,1fr);
+    
+  }
+  
+body{
+height: 0;
+display: initial;
+}
+
+form{
+width: 95%;
+}
+}
+    </style>
+  </head>
+  <body>
+       
+    
+    
+    
+    	<div class="sign-up">
+	  <div class="cover">
+	    <form action="" method="POST" id="form">
+	       {%csrf_token%}
+        
+        <h2 style="color: #7138ff">Intelli.ai</h2>
+      </a>
+      <p>Select template to continue.</p>
+     
+        {{form}}
+	        <input type="submit" name="" id="btn" value="Generate" />
+	      
+	    </form>
+	  </div>
+	   <div id="div" style='margin: 1rem'>
+  
+  </div>
+	</div>
+    
+   
+  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <script type="text/javascript" charset="utf-8">
+const list_item = [];
+// Get the form submit button
+const submitButton = document.getElementById("btn");
+
+
+
+submitButton.addEventListener("click", function(event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+  
+  const div = document.getElementById("div");
+  
+  div.innerHTML = "HELLO"
+  
+  // Get the form data
+  const formData = new FormData(document.getElementById("form"));
+
+  // Send a POST request to the server
+  fetch('/templates/new/', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Get a reference to the div element
+    
+
+    // Set the innerHTML of the div to the response data
+
+    div.innerHTML = '';
+    data.content.forEach(item => {
+
+      const li = document.createElement('li');
+
+      list_item.push(li);
+      li.innerHTML = item.text;
+      div.appendChild(li);
+
+    });
+  })
+  .catch(error => console.error(error));
+});
+
+
+/*$("#id_prompt_style").select2({
+  placeholder: "Select a programming language",
+  
+});*/
+
+
+var prompt_style = $("#id_prompt_style")
+var tone = $("#id_tone")
+var topic = $("#id_topic").css("display", "none")
+var descrip = $("#id_description").css("display", "none")
+
+
+prompt_style.select2({
+placeholder: "select"
+})
+
+tone.css("display", "none")
+
+prompt_style.change(function (){
+
+var templates_all = ["fb_ad", "email", "creative_writing", "blog_post_intro", "product_description"]
+var templates_description = ["blog_topic", "explain_like_am_5", "fix_grammar"]
+var templates_topic = ["Content creation", "blog_outline"]
+var templates_description_tone = ["content_improver"]
+
+
+
+for (item in templates_all) {
+  if(templates_all[item] == prompt_style.val()){
+descrip.css("display", "initial")
+tone.css("display", "initial")
+tone.select2({
+placeholder: "select"
+})
+topic.css("display", "initial")
+
+}
+}
+
+for (item in templates_description){
+if(templates_description[item] == prompt_style.val()){
+descrip.css("display", "initial")
+tone.css("display", "none")
+tone.select2("destroy")
+topic.css("display", "none")
+}
+}
+
+
+
+})
+  </script>
+ 
+
+  </body>
+</html>

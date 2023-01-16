@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+	<div class="sign-up">
+	  <div class="cover">
+	    <form method="POST">
+	    {% csrf_token %}
+	      <a href="#">
+        <h2 class="">Intelli.ai</h2>
+      </a>
+	      <h2 style="text-align: center">Sign up for an account to <br />continue</h2>
+      <p>Quickly sign in by using your exiting account.</p>
+        
+
+          {% for field in form %}
+            {{field}}
+          {% endfor %}
+	      <input type="submit" name="" id="" value="login" />
+	      <p>Don't have an account? <a href="#" id="sign_in">Sign up</a></p>
+	      <!--<p>Welcome to Gboard clipboard, any text you copy will be saved here.Tap on a clip to paste it in the text box.</p>-->
+	    </form>
+	  </div>
+	</div>
+
+{% endblock content %}
