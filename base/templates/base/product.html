@@ -142,6 +142,7 @@ width: 95%;
     <!-- Select2 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   <script type="text/javascript" charset="utf-8">
+
 const list_item = [];
 // Get the form submit button
 const submitButton = document.getElementById("btn");
@@ -168,12 +169,13 @@ submitButton.addEventListener("click", function(event) {
   .then(data => {
     // Get a reference to the div element
     
+    
 
     // Set the innerHTML of the div to the response data
 
     div.innerHTML = '';
     data.content.forEach(item => {
-
+      console.log(item);
       const li = document.createElement('li');
 
       list_item.push(li);
@@ -186,57 +188,10 @@ submitButton.addEventListener("click", function(event) {
 });
 
 
-/*$("#id_prompt_style").select2({
-  placeholder: "Select a programming language",
+
+
+
   
-});*/
-
-
-var prompt_style = $("#id_prompt_style")
-var tone = $("#id_tone")
-var topic = $("#id_topic").css("display", "none")
-var descrip = $("#id_description").css("display", "none")
-
-
-prompt_style.select2({
-placeholder: "select"
-})
-
-tone.css("display", "none")
-
-prompt_style.change(function (){
-
-var templates_all = ["fb_ad", "email", "creative_writing", "blog_post_intro", "product_description"]
-var templates_description = ["blog_topic", "explain_like_am_5", "fix_grammar"]
-var templates_topic = ["Content creation", "blog_outline"]
-var templates_description_tone = ["content_improver"]
-
-
-
-for (item in templates_all) {
-  if(templates_all[item] == prompt_style.val()){
-descrip.css("display", "initial")
-tone.css("display", "initial")
-tone.select2({
-placeholder: "select"
-})
-topic.css("display", "initial")
-
-}
-}
-
-for (item in templates_description){
-if(templates_description[item] == prompt_style.val()){
-descrip.css("display", "initial")
-tone.css("display", "none")
-tone.select2("destroy")
-topic.css("display", "none")
-}
-}
-
-
-
-})
   </script>
  
 
