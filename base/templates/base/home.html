@@ -59,9 +59,9 @@ attractions
     <!-- Select2 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   <script type="text/javascript" charset="utf-8">
-    const list_item = []
-  // Get the form submit button
-  const submitButton = document.getElementById("btn");
+const list_item = []
+// Get the form submit button
+const submitButton = document.getElementById("btn");
 
 const select = document.getElementById('id_prompt_style').value
 
@@ -73,38 +73,44 @@ submitButton.addEventListener("click", function(event) {
 
   // Get the form data
   const formData = new FormData(document.getElementById("form"));
+  const headers = new Headers({
+    'Content-Type': 'application/json'
+  });
+
+  const options = {
+    method: 'POST',
+    headers,
+    body: formData,
+    credentials: 'same-origin'
+  };
 
   // Send a POST request to the server
-  fetch('/templates/new/', {
-  method: 'POST',
-  body: formData
-})
-.then(response => response.json())
-.then(data => {
-  // Get a reference to the div element
-  const div = document.getElementById("div");
-  
-  // Set the innerHTML of the div to the response data
-  
-  div.innerHTML = '';
-  data['content'].forEach(item => {
-  
-  const li = document.createElement('li')
-  
-  list_item.push(li)
-  li.innerHTML = item['text'];
-  div.appendChild(li)
-  
+  fetch('/templates/new/', options)
+  .then(response => response.json())
+  .then(data => {
+    // Get a reference to the div element
+    const div = document.getElementById("div");
+
+    // Set the innerHTML of the div to the response data
+
+    div.innerHTML = '';
+    data['content'].forEach(item => {
+
+      const li = document.createElement('li');
+
+      list_item.push(li);
+      li.innerHTML = item['text'];
+      div.appendChild(li);
+
+    });
   })
-})
-.catch(error => console.error(error))
+  .catch(error => console.error(error));
 });
 
 
-      $("#id_prompt_style").select2({
-          placeholder: "Select a programming language",
-          allowClear: true
-      });
+$("#id_prompt_style").select2({
+  placeholder: "Select a programming language"
+});
   </script>
  
 

@@ -26,10 +26,10 @@ menu
 attractions
 </span>Intelli.ai</h2>
     <ul>
-      <li><a class="icon icon-data" href="#">Dashboard</a></li>
-      <li><a class="icon icon-location" href="#">Templates</a></li>
-      <li><a class="icon icon-photo" href="#">Sign in</a></li>
-      <li><a class="icon icon-wallet last" href="#">Sign up</a></li>
+      <li><a class="icon icon-data" href="{% url 'new' %}">Dashboard</a></li>
+      <li><a class="icon icon-location" href="{% url 'templates' %}">Templates</a></li>
+      <li><a class="icon icon-photo" href="{% url 'login' %}">Sign in</a></li>
+      <li><a class="icon icon-wallet last" href="{% url 'register' %}">Sign up</a></li>
     </ul>
   </nav>
 
@@ -50,42 +50,42 @@ attractions
   </div>
   
   <div class="service">
-    <h1 data-aos='fade'>Essentials features for driving <br />your tasks</h1>
+    <h1 data-aos='fade-down'>Essentials features for driving your tasks</h1>
     <div class="services">
-      <div class="ser" data-aos='fade-left'>
-        <span class="material-symbols-rounded" id="span1">sort</span>
-        <h2>Fix Grammar</h2>
-        <p>Essentials features for driving your tasks Essentials features for dr.</p>
+      <div class="ser" data-aos='fade-up'>
+        <img src="https://img.icons8.com/external-xnimrodx-blue-xnimrodx/64/null/external-megaphone-advertisment-xnimrodx-blue-xnimrodx.png"/>
+        <h2>Facebook Ad</h2>
+        <p>Generate catchy facebook ad copy with ease</p>
       </div>
       
-      <div class="ser" data-aos='fade-right'>
-        <span class="material-symbols-rounded" id="span2">sort</span>
-        <h2>Fix Grammar</h2>
-        <p>Essentials features for driving your tasks Essentials features for dr.</p>
+      <div class="ser" data-aos='fade-up'>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE4ElEQVR4nO2XfUwTZxzHzxmXbWYvZsmSzfW6xTiFgZMe6hxzW4QuYO+lTFhE5mYCjB5mm+6PjQUm2Ut0RqQFNoUpqLSkjnB3DaV3KQwNLnGY6TLcTCbJ4hakvDsdBXlrf8u1gFCuFQKFM+k3+f33vHw+eZ7ndzkECSWUUEIJRe7Rn+Se0BvZCoOJ+ddgZK4fOX1mr0qnOITRik6VTtGO0ehB7H1sGSLHHK6wL9cbmUsGEwti6Y3VkJhLAEajvnUQkVuqqqqW6o2M1QvOtuSbOcXWjzfVSsADRisciNyiN7FFHngT05N/mn0B06G50vAoYDq0DZFTDCZmnxeevVNgqo7BaDQNo1F3AIEDiFxSYGQ0eiM7qjcy7oJKJhWjUY1Kh44EgG98/T3lQ4gcUljJYQYT4/Q8WiObjWU+uxHToU5/8Coa/T2SRlcgcojezD2nN7Ht3o7DlK3PXLka06FdfuF1aGs0/YwCkUsMJubc2KO1x32KoZhO8XcA+J4oWhmGyCmFZnaV3sRUZx7JXInRit8CwA9gmWjMosKCnXgeePwsCARMrmEbDvTn4dKPlUZhQ5YScr5av3+R4ROfAp5o8YV3CTh88mWkX/joLBQspTHi2EEQSHJx4Pn4x0DAf/WFF6utKRze2Kv0K3CicNOk8fgQCMRbCwtflfwg8HidFPyVPyIBAIH+7schKXe6xIFDUdPmgICPAk+8szDwgCwBnqiQgv+ploQ9P8ZCZ/8jHokR58Pw4eG7Evu+iAQXj0sIEF4JgdgdfAEB10sBXLORsJ3TAs5pYZcQDy03V3gk3MPLIL9cCRk54TBU6w+e8BZPuEHA9wQPnsezpTZ28AQkcVS/CD9eSTUENDme9kgM/fMkdJVhMMSqAwsI4xLkR0GA16R6F5+64S2egFSO+m8y/HiRFgr45jXQXhIBjuIwTw1xcfeWEEQRPGf+4AUybqxbTNlkSCCAtlC9UvBipbAUtH4fNQEvVk8ZNjMBwfMuvpk7PI9vAB7v813cLRDwmYXq9Aev5Sj4qyx6CvzEKbAzPAVBumYOX6dZDQLRJbVIfg15wx+8WM2nNkvCe07hhGqBBAS8QWoBUw3ZGgj+vHGLX/iu0pfgTvXWBRLgCafv5IZa8oaGo1z+4CtOviIJ3nE0ApzmLWKXmRM8zE4Ar5888aqNbNdaqAGzlfS0zr6xFnrVRkJjLQmN3DboPh4FHccioOO7F6G9ONx7ZY6rwGVNmDM4zFqgHkc9Ejzed91GNRKc9ma1lQQ4tx/gl4sAF8zzBgXBELhrgizBWe158Yr0ilfgUhPA5SsAFyrvDwENk7hj/I53iwIX7QCXmwEaPpC/QHJV8lKco66NC5SKV8i+C+Bs9qLAw2wFcI7S+nYaQw3lebz3hYCGo+qmtUtWe/uH8o3NXSXr4LZxMwwyseCy4S7ZCZAW8lGco4Ynw2s46ud4VrvK8W2Y0lEUVtdWtLbPURxm7z4avaa3HBvpP/MajFrj5SGgTt/99bZT251j4D0aVkvn5eU94G+8o3ht/cQXt2Qd9FW++ucgG+uaj48XzFYgdmdGnHpnulv9btpoQvHbBWq7evm95vieSpshHBWlOo5Fwq2Klz1XbdSaMDD29xVcgTd3pKnjUtKd6pSMrBlNmIXUXNYLJZRQQgkFCUb+B6hhy+QwLaoSAAAAAElFTkSuQmCC">
+        <h2>Creative writing</h2>
+        <p>write a well constructed story that will engage your readers.</p>
       </div>
       
-      <div class="ser" data-aos='fade-left'>
-        <span class="material-symbols-rounded" id="span3">sort</span>
-        <h2>Fix Grammar</h2>
-        <p>Essentials features for driving your tasks Essentials features for dr.</p>
+      <div class="ser" data-aos='fade-up'>
+        <img src="https://img.icons8.com/fluency/48/null/apple-mail.png"/>
+        <h2>Email</h2>
+        <p>Easily create professional emails with our AI tool</p>
       </div>
       
-      <div class="ser" data-aos='fade-right'>
-        <span class="material-symbols-rounded" id="span4">sort</span>
-        <h2>Fix Grammar</h2>
-        <p>Essentials features for driving your tasks Essentials features for dr.</p>
+      <div class="ser" data-aos='fade-up'>
+        <img src="https://img.icons8.com/arcade/64/null/recycling.png"/>
+        <h2>Paraphraser</h2>
+        <p>Renowned ai powered paraphrasing tool.</p>
       </div>
       
-      <div class="ser" data-aos='fade-left'>
-        <span class="material-symbols-rounded" id="span5">sort</span>
-        <h2>Fix Grammar</h2>
-        <p>Essentials features for driving your tasks Essentials features for dr.</p>
+      <div class="ser" data-aos='fade-up'>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAuElEQVR4nO2WwQnDMAxFtdlfodmoxy7km8bwPi4UCqWUoqRJLNH3wHc9S/6yGUBetLSrLu1mZYtf2nicahJ6Lb6ahD4VX0VC34qvIvHkvXCrhhAo2gFl2R1bBMTumITYHXvhfYTOjOhVJB2yCiiaDhkFtOZnmU1Aa9Mhk4C2/Cx/FDiM8M0gULEDfsLYIeCTOxAm6wiFQaDv2IGzbtOPGiEEOh0wRsh5xIMUcmK0s8iszGcOAODvuAPlh5HII4HYogAAAABJRU5ErkJggg==">
+        <h2>Content imporover</h2>
+        <p>Rewrite a piece of article to make it more interesting and engaging.</p>
       </div>
       
-      <div class="ser" data-aos='fade-right'>
-        <span class="material-symbols-rounded" id="span6">sort</span>
-        <h2>Fix Grammar</h2>
-        <p>Essentials features for driving your tasks Essentials features for dr.</p>
+      <div class="ser" data-aos='fade-up'>
+        <img src="https://img.icons8.com/external-nawicon-flat-nawicon/64/null/external-seo-seo-and-marketing-nawicon-flat-nawicon.png"/>
+        <h2>Seo friendly</h2>
+        <p>Essentials features that will give your content the best ranking.</p>
       </div>
       
     </div>
@@ -111,22 +111,22 @@ attractions
         <span class="material-symbols-rounded">attractions</span>
         <h2 class="">Intelli.ai</h2>
       </a>
-      <p>2627 Park Street, San Francisco, CA</p>
+      <p>The simple future of content generation.</p>
       <a href="mailto:daviduche176@gmail.com?subject=feedback">email me</a>
     </div>
     <div id="links">
       <ul>
-        <li>Useful links</li>
-        <li><a href="http://example.com">example.com</a></li>
-        <li><a href="http://example.com">example.com</a></li>
-        <li><a href="http://example.com">example.com</a></li>
+        <li>Socail media</li>
+        <li><a href="http://example.com">Facebook</a></li>
+        <li><a href="http://example.com">Twitter</a></li>
+        <li><a href="http://example.com">Instagram</a></li>
       </ul>
       
       <ul>
         <li>Useful links</li>
-        <li><a href="http://example.com">example.com</a></li>
-        <li><a href="http://example.com">example.com</a></li>
-        <li><a href="http://example.com">example.com</a></li>
+        <li><a href="http://example.com">Terms and conditions</a></li>
+        <li><a href="http://example.com">Privacy and policies</a></li>
+        <li><a href="http://example.com">Use case</a></li>
       </ul>
     </div>
   </footer>
