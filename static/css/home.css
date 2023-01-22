@@ -1,196 +1,99 @@
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  scroll-behavior: smooth;
-  list-style: none;
-  box-sizing: border-box;
-  font-family: Poppins;
-  transition: .3s;
-}
-
 body {
-  background: #fff;
+  background: #e7e7e7;
   color: #000;
+  display: flex;   
+  justify-content: center;   
+  align-items: center;   
+  flex-direction: column;   
+  height: 100vh
 }
 
-header {
-  display: flex;
-  justify-content: space-arround;
-  align-items: center;
-  padding: 0 2%;
-  background: #f5f5f5;
-}
-
-.logo a {
-  color: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  transition: .3s;
-}
-
-.logo a span {
-  margin: 1rem;
-  font-size: 5rem;
-  color: #2c6af6;
-}
-
-.acc {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.acc p {
-  font-size: 2.5rem;
-}
-
-#grid {
+.sign-up{
   display: grid;
-  grid-template-columns: 2, 1fr;
-  grid-gap: 2rem;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 2.7rem;
+  margin: 1.3rem;
+  place-items: center;
 }
 
-.st-menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  visibility: visible;
-  width: 300px;
-  height: 100%;
-  margin-top: 6rem;
-  background: #f5f5f5;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-.st-menu-open .st-menu::after {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  -webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-  transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-}
-
-.st-menu-open .st-menu::after {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  -webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-  transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-}
-
-/* content style */
-
-.st-menu ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  margin-top: 0rem;
-}
-
-.st-menu ul li a {
-  display: block;
-  padding: 1.5em 1em 1em 2.2em;
-  outline: none;
-  color: #111;
-  font-family: Poppins;
-  text-transform: capitalize;
-  text-shadow: 0 0 1px rgba(255,255,255,0.1);
-  font-weight: 400;
-  -webkit-transition: background 0.3s, box-shadow 0.3s;
-  transition: background 0.3s, box-shadow 0.3s;
-}
-
-.st-menu ul li a:hover {
-  color: #111;
+.cover{
   background: #fff;
-  border-radius: 1.5rem 0 0 1.5rem;
+  padding: 2rem;
+  border-radius: .2rem;
 }
 
-.st-effect-1.st-menu {
-	visibility: visible;
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
 }
 
-.st-effect-1.st-menu-open .st-effect-1.st-menu {
-	visibility: visible;
+form h2{
+  margin: 1rem 0 1rem 0;
 }
 
-.st-effect-1.st-menu::after {
-	display: block;
+form p{
+  margin-bottom: 1rem;
 }
 
-.result{
-  margin-top: 4rem;
+form p:last-child{
+  color: grey;
+  width: 20rem;
+  margin-top: 1rem;
 }
 
-.result li{
-  padding: 1rem;
+form input, textarea, select{
+  width: 100%;
+  padding: .9rem;
+  background: transparent;
+  border: 2px solid #e7e7e7;
+  outline: none;
+  margin: .7rem;
   border-radius: .3rem;
-  border: 2px solid #2c6af6;
-  transition: ease .3s;
-  margin: 1rem;
+  margin-bottom: 1rem;
 }
 
-.result li i{
-  float: right;
+form input[type='submit']{
+  background: #7138ff;
+  color: #fff;
 }
 
-.box{
-display: grid;
-place-items: center
+
+form textarea{
+  height: 20rem;
+  margin-top: 3rem;
 }
 
-.box form{
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
+#id_topic{
+margin-top: 3rem;
+margin-bottom: 3rem;
+}
+
+li{
+list-style: none;
+background: #fff;
+color: #111;
+padding: 1.5rem;
+border-radius: .3rem;
+margin: 1rem;
 }
 
 @media only screen and (max-width: 600px) {
-  .st-menu{
-    margin-top: 6rem;
-    top: -2.5rem;
-  }
-  
-  .box{
-    margin: 0;
-    margin-top: 0rem
-  }
 
-  #grid {
-    display: flex;
+.sign-up{
     grid-template-columns: repeat(1,1fr);
-    grid-gap: 1rem;
+    
   }
   
-  .logo a{
-    font-size: 1rem;
-  }
-  
-  .logo a span{
-    font-size: 2rem;
-  }
-  
-  .st-effect-1.st-menu {
-	visibility: visible;
-	-webkit-transform: translate3d(-100%, 0, 0);
-	transform: translate3d(-100%, 0, 0);
+body{
+height: 0;
+display: initial;
 }
 
-.st-effect-1.st-menu-open .st-effect-1.st-menu {
-	visibility: visible;
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
+form{
+width: 95%;
 }
-
-.st-effect-1.st-menu::after {
-	display: none;
-}
-
-
 }

@@ -1,117 +1,19 @@
-
 <!DOCTYPE html>
+{% load static %}
 <html>
   <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title></title>
+     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Select2 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    
- <style type="text/css" media="">
- body {
-  background: #e7e7e7;
-  color: #000;
-  display: flex;   
-  justify-content: center;   
-  align-items: center;   
-  flex-direction: column;   
-  height: 100vh
-}
-
-.sign-up{
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-gap: 2.7rem;
-  margin: 1.3rem;
-  place-items: center;
-}
-
-.cover{
-  background: #fff;
-  padding: 2rem;
-  border-radius: .2rem;
-}
-
-form{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  text-align: center;
-}
-
-form h2{
-  margin: 1rem 0 1rem 0;
-}
-
-form p{
-  margin-bottom: 1rem;
-}
-
-form p:last-child{
-  color: grey;
-  width: 20rem;
-  margin-top: 1rem;
-}
-
-form input, textarea, select{
-  width: 100%;
-  padding: .9rem;
-  background: transparent;
-  border: 2px solid #e7e7e7;
-  outline: none;
-  margin: .7rem;
-  border-radius: .3rem;
-  margin-bottom: 1rem;
-}
-
-form input[type='submit']{
-  background: #7138ff;
-  color: #fff;
-}
-
-
-form textarea{
-  height: 20rem;
-  margin-top: 3rem;
-}
-
-#id_topic{
-margin-top: 3rem;
-margin-bottom: 3rem;
-}
-
-li{
-list-style: none;
-background: #fff;
-color: #111;
-padding: 1.5rem;
-border-radius: .3rem;
-margin: 1rem;
-}
-
-@media only screen and (max-width: 600px) {
-
-.sign-up{
-    grid-template-columns: repeat(1,1fr);
-    
-  }
-  
-body{
-height: 0;
-display: initial;
-}
-
-form{
-width: 95%;
-}
-}
-    </style>
-  </head>
+      </head>
   <body>
        
     
@@ -155,7 +57,7 @@ submitButton.addEventListener("click", function(event) {
   
   const div = document.getElementById("div");
   
-  div.innerHTML = "HELLO"
+  div.innerHTML = "{% static 'images/download.gif' %}"
   
   // Get the form data
   const formData = new FormData(document.getElementById("form"));
