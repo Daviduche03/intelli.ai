@@ -1,4 +1,4 @@
-body {
+.body {
   background: #e7e7e7;
   color: #000;
   display: flex;   
@@ -88,7 +88,7 @@ margin: 1rem;
     
   }
   
-body{
+.body{
 height: 0;
 display: initial;
 }

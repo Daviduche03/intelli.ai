@@ -10,11 +10,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Select2 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
       </head>
-  <body>
+  <body style="body">
        
     
     
@@ -57,7 +57,7 @@ submitButton.addEventListener("click", function(event) {
   
   const div = document.getElementById("div");
   
-  div.innerHTML = "{% static 'images/download.gif' %}"
+  div.innerHTML = '<img src="{% static 'images/shape-009.png' %}" />'
   
   // Get the form data
   const formData = new FormData(document.getElementById("form"));
